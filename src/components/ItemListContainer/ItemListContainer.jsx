@@ -1,7 +1,6 @@
 import Form from "../Form/Form"
-import Titulo from "../Titulo/Titulo"
 
-const ItemListContainer = () => {
+const ItemListContainer = (greeting) => {
 
     function saludar (){
         const nombre = prompt ("Ingrese su nombre")
@@ -10,7 +9,7 @@ const ItemListContainer = () => {
 
     return (
         <>
-            <Titulo titulo="Bienvenid@!" subtitulo= "A mi página de diseños"/>
+            <h3>{greeting.subtitulo}</h3>
             <Form saludar={saludar}/>
         </>
     )

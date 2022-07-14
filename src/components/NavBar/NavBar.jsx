@@ -9,7 +9,7 @@ const NavBar = () => {
                     <img src= {logo} alt="logo" width="90" height="90"
                         className=" m-2 d-inline-block align-text-center"/> ECommerce
                 </a>
-                <ul class="nav">
+                <ul className="nav">
                     <li className="nav-item">
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"

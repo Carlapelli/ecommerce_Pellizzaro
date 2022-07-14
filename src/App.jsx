@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar'
+import Titulo from './components/Titulo/Titulo'
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
   return (
     <div className='App'>
       <NavBar />
-      <ItemListContainer/>
+      <Titulo titulo= "Mi Ecommerce ♥"/>
+      <ItemListContainer subtitulo= "Bienvenid@ a mi página de diseños!"/>
     </div>
   )
 }
