@@ -1,6 +1,5 @@
 import Titulo from "../Titulo/Titulo"
 
-
 const Form = ({saludar}) => {
     return (
       <>
