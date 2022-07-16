@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import './App.css'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar'
 import Titulo from './components/Titulo/Titulo'
 
+import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className='App'>
