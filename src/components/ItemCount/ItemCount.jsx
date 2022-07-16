@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
 
 const ItemCount = ({inicial = 1, stock = 10, onAdd}) => {
 
-    const [count, setCount] = useState (1) 
+    const [count, setCount] = useState (inicial) 
 
     const sumarItem = () => {
         if (count < stock){
