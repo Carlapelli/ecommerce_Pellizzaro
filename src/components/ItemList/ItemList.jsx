@@ -1,30 +1,36 @@
 import { getFetch } from "../../helper/getFech"
+import { useEffect, useState } from "react"
+
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button' 
+import ItemCount from "../ItemCount/ItemCount"
 
 const ItemList = () => {
 
     const [productos, setProductos] = useState ([])
+    const [loading, setLoading] =useState (true)
 
-    useEffect (()=>{ 
+    useEffect (()=> {
         getFetch ()
-        .then (respuesta => setProductos(respuesta))
-        .catch (err => console.log (err))
-        .finally (()=> console.log ("finally"))
-    },[])
+            .then (respuesta => setProductos(respuesta))
+            .catch (err => console.log (err))
+            .finally(()=> setLoading(false))
+    }, [])
 
     return (
         <div>
-                {productos.map((productos)=>
-                <Card className= "m-5" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={productos.img}/>
+            {loading ? <p>Cargando productos..</p>: productos?.map(producto =>
+            <Card className= "m-5" style={{ width: '18rem' }}>                
+                <Card.Img variant="top" src={producto.img}/>
                 <Card.Body>
-                    <Card.Title>{`${productos.categoria}: ${productos.nombre}`}</Card.Title>
-                    <Card.Text> {`${productos.precio}`}</Card.Text>
-                    <ItemCount initial={1} stock={10} onAdd ={onAdd}/>
+                    <Card.Title key= {producto.id}>{`${producto.categoria}: ${producto.nombre}`}</Card.Title>
+                    <Card.Text> {`$${producto.precio}`}</Card.Text>
+                    <Button variant="outline-secondary m-2">Detalle del Producto</Button>
+                    <ItemCount initial={1} stock={10}/>
                 </Card.Body>
             </Card>
-
-            )}
-        </div>
+    )}
+    </div>
     )
     }
 
