@@ -1,5 +1,6 @@
 import { getFetch } from "../../helper/getFech"
 import { useEffect, useState } from "react"
+import loadingImage from "../../imagenes/iconos/loading.png"
 
 import Item from "../Item/Item"
 
@@ -16,11 +17,11 @@ const ItemList = () => {
     }, [])
 
     return (
-        <div>
-            {loading ? <p>Cargando productos..</p>: productos?.map(producto =>
+        <div className= "cardContainer">
+            {loading ? <div><p>Cargando productos..</p> <img src={loadingImage} alt="loading"/></div>: productos?.map(producto =>
             <Item img={producto.img} id={producto.id} categoria={producto.categoria} nombre={producto.nombre} precio={producto.precio}/>
-    )}
-    </div>
+            )}
+        </div>
     )
     }
 
