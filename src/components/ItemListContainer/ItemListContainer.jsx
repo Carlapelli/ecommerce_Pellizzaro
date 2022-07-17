@@ -18,7 +18,9 @@ const ItemListContainer = (greeting) => {
         <div>
             <h3>{greeting.subtitulo}</h3>
             <Form saludar={saludar}/>
+            <div className= "cardContainer">
             <ItemList />
+            </div>
         </div>
     )
 }
