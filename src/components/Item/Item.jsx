@@ -1,5 +1,4 @@
 import { Button, Card } from 'react-bootstrap'
-import ItemCount from '../ItemCount/ItemCount'
 
 const Item = ({img, id, categoria, nombre, precio}) => {
 
@@ -11,7 +10,6 @@ const Item = ({img, id, categoria, nombre, precio}) => {
                         <Card.Title key={id}>{`${categoria}: ${nombre}`}</Card.Title>
                         <Card.Text> {`$${precio}`}</Card.Text>
                         <Button variant="outline-secondary m-2">Detalle del Producto</Button>
-                        <ItemCount initial={1} stock={10}/>
                     </Card.Body>
                 </Card>
         </div>

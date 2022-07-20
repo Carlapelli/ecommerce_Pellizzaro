@@ -6,7 +6,7 @@ let productos = [
     {id: 4, categoria: "Sticker", nombre: "Call Me", precio: 300, img:"../../imagenProductos/stickers/celu.jpg"},
     {id: 5, categoria: "Sticker", nombre: "You Rock!", precio: 300, img:"../../imagenProductos/stickers/rayo.jpg"},
     {id: 6, categoria: "Cuadro", nombre: "Wine, please", precio: 1000, img:"../../imagenProductos/cuadros/chicaVino.jpg"},
-    {id: 6, categoria: "Cuadro", nombre: "Get Free", precio: 1000, img:"../../imagenProductos/cuadros/doYourThing.jpg"},
+    {id: 7, categoria: "Cuadro", nombre: "Get Free", precio: 1000, img:"../../imagenProductos/cuadros/doYourThing.jpg"},
     {id: 8, categoria: "Cuadro", nombre: "Hot as Hell", precio: 1000, img:"../../imagenProductos/cuadros/hot.jpg"},
     {id: 9, categoria: "Cuadro", nombre: "Say Yes!", precio: 1000, img:"../../imagenProductos/cuadros/love.jpg"},
     {id: 10, categoria: "Cuadro", nombre: "The Queen", precio: 1000, img:"../../imagenProductos/cuadros/tarot.jpg"}
