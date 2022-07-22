@@ -4,6 +4,7 @@ import Titulo from './components/Titulo/Titulo'
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
       <NavBar />
       <Titulo titulo= "Mi Ecommerce ♥"/>
       <ItemListContainer subtitulo= "Bienvenid@ a mi página de diseños!"/>
+      <ItemDetailContainer />
+      
     </div>
   )
 }

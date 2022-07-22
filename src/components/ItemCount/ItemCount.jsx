@@ -2,7 +2,7 @@ import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 
 
-const ItemCount = ({inicial = 1, stock = 10, onAdd}) => {
+const ItemCount = ({inicial, stock, onAdd}) => {
 
     const [count, setCount] = useState (inicial) 
 

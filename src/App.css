@@ -39,3 +39,14 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.imgDescripcion {
+  width: auto;
+  height: 350px;
+}
+
+.itemDetailContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

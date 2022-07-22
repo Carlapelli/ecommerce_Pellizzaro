@@ -37,7 +37,7 @@ const ItemListContainer = (greeting) => {
                     : 
                     <ItemList productos={productos} />
                 }
-            <ItemCount initial={1} stock={10} onAdd = {onAdd}/>
+            <ItemCount inicial={1} stock={10} onAdd = {onAdd}/>
         </div>
     )
 }
