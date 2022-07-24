@@ -1,22 +1,31 @@
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import NavBar from './components/NavBar/NavBar'
-import Titulo from './components/Titulo/Titulo'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import Cart from "./components/Cart/cart"
+import Titulo from "./components/Titulo/Titulo"
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 
 
 function App() {
 
   return (
-    <div className='App'>
-      <NavBar />
-      <Titulo titulo= "Mi Ecommerce ♥"/>
-      <ItemListContainer subtitulo= "Bienvenid@ a mi página de diseños!"/>
-      <ItemDetailContainer />
-      
-    </div>
+    <BrowserRouter>
+      <div className='App'>
+        <NavBar />
+        <Titulo titulo= "Mi Ecommerce ♥"/>
+        <Routes>
+          <Route index path="/" element={<ItemListContainer subtitulo="Bienvenid@ a mi página de diseños!"/>}/>
+          <Route path="/categoria/:categoriaId" element={<ItemListContainer subtitulo ="Productos Seleccionados"/>}/>          
+          <Route path="/detalle/:id" element={<ItemDetailContainer />}/>
+          <Route path ="/cart" element ={<Cart />}/>
+          <Route path ="*" element ={<Navigate to="/"/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 

@@ -1,5 +1,6 @@
 
 const Titulo = ({titulo, subtitulo}) => {
+  
     return (
     <>
       <h1>{titulo}</h1>

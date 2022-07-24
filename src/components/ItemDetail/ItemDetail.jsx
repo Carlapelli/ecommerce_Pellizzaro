@@ -1,6 +1,7 @@
 import { Button, Card } from 'react-bootstrap'
 
 const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) => {
+
   return (
     <div>
     <Card className= "m-5" style={{ width: '30rem'}}>
@@ -17,7 +18,7 @@ const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) =>
             <small className="text-muted">{`Stock:${stock}`}</small>
             </Card.Footer>
         </Card>
-</div>
+    </div>
   )
 }
 
