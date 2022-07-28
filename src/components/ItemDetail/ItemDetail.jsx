@@ -1,6 +1,27 @@
+import { useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import ItemCount from '../ItemCount/ItemCount'
+
+const AlCarrito = () =>{
+  return (
+    <Link to="/cart">
+        <Button variant="outline-secondary m-2">Ir al Carrito!</Button>
+    </Link>
+  )
+}
 
 const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) => {
+
+  const [toCart, aCarrito] = useState (true)
+
+  const cambioBotton = ()=>{
+    aCarrito (false)
+  }
+
+  const onAdd = (cant) => {
+    console.log(`La cantidad es:  ${cant}`)
+  }
 
   return (
     <div>
@@ -12,7 +33,11 @@ const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) =>
                 {`Descripción: ${categoria}, ${descripcion}`}
                 <br /> {`Precio: $${precio}, incluye IVA.`}
                 </Card.Text>
-                <Button variant="outline-secondary m-2">Comprar</Button>
+            { toCart === true ?
+                <ItemCount inicial={1} stock={stock} onAdd={onAdd} cambioBotton={cambioBotton}/>
+              :
+              <AlCarrito/>
+            }               
             </Card.Body>
             <Card.Footer>
             <small className="text-muted">{`Stock:${stock}`}</small>

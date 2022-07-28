@@ -5,7 +5,6 @@ import { getFetch } from "../../helper/getFech"
 
 import ItemDetail from "../ItemDetail/ItemDetail"
 import loadingImage from "../../imagenes/iconos/loading.png"
-import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetailContainer = () => {
 
@@ -21,9 +20,6 @@ const ItemDetailContainer = () => {
             .finally(()=> setLoading(false))
     }, [])
 
-    const onAdd = (cant) => {
-        console.log(`La cantidad es:  ${cant}`)
-    }
 
     return (
         <div className="itemDetailContainer">
@@ -32,8 +28,7 @@ const ItemDetailContainer = () => {
                     : 
             <ItemDetail productos={productos} img={productos.img} id={productos.id} categoria={productos.categoria} nombre={productos.nombre} precio={productos.precio} descripcion={productos.descripcion} stock={productos.stock}/>
             }
-            <ItemCount inicial={1} stock={10} onAdd = {onAdd}/>
-            </div>
+        </div>
     )
 }
 
