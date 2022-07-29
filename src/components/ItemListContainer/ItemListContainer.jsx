@@ -3,9 +3,8 @@ import {useParams} from "react-router-dom"
 import {getFetch} from "../../helper/getFech"
 
 
-import Form from "../Form/Form"
-import loadingImage from "../../imagenes/iconos/loading.png"
 import ItemList from "../ItemList/ItemList"
+import Loading from "../Loading/Loading"
 
 
 
@@ -35,7 +34,7 @@ const ItemListContainer = (greeting) => {
                 <h2>{greeting.subtitulo}</h2>
 
             { loading ? 
-                    <div><p>Cargando productos..</p> <img src={loadingImage} alt="loading"/></div>
+                    <Loading />
                     : 
                     <ItemList productos={productos} />
                 }

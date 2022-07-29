@@ -4,7 +4,7 @@ import { getFetch } from "../../helper/getFech"
 
 
 import ItemDetail from "../ItemDetail/ItemDetail"
-import loadingImage from "../../imagenes/iconos/loading.png"
+import Loading from "../Loading/Loading"
 
 const ItemDetailContainer = () => {
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
     return (
         <div className="itemDetailContainer">
             { loading ? 
-                    <div><p>Cargando productos..</p> <img src={loadingImage} alt="loading"/></div>
+            <Loading />
                     : 
             <ItemDetail productos={productos} img={productos.img} id={productos.id} categoria={productos.categoria} nombre={productos.nombre} precio={productos.precio} descripcion={productos.descripcion} stock={productos.stock}/>
             }
