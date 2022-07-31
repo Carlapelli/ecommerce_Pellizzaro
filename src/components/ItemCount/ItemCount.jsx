@@ -20,7 +20,7 @@ const ItemCount = ({inicial, stock, onAdd, cambioBotton}) => {
         }
 
     const sumarCarrito = () => {
-        if (count < stock){
+        if (count <= stock){
         onAdd (count)
     }}
 

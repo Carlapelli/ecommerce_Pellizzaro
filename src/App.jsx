@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Cart from "./components/Cart/cart"
 import Titulo from "./components/Titulo/Titulo"
+import CartContextProvider from "./Context/CartContext"
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -13,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
 
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <div className='App'>
         <NavBar />
@@ -26,6 +28,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </CartContextProvider>
   )
 }
 

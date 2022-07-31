@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
             { loading ? 
             <Loading />
                     : 
-            <ItemDetail productos={productos} img={productos.img} id={productos.id} categoria={productos.categoria} nombre={productos.nombre} precio={productos.precio} descripcion={productos.descripcion} stock={productos.stock}/>
+            <ItemDetail producto={productos}/>
             }
         </div>
     )

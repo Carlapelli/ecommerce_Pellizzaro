@@ -19,7 +19,6 @@ const NavBar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className='navBar'>
                 <Nav>
-
                     <NavLink to="/" className="nav-link m-4 text-muted">Inicio</NavLink>
                     <NavLink to="/categoria/Sticker" className="nav-link m-4 text-muted">Stickers</NavLink>
                     <NavLink to="/categoria/Cuadro" className="nav-link m-4 text-muted">Cuadros</NavLink>
