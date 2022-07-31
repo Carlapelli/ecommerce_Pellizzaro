@@ -1,19 +1,19 @@
 import { useState } from 'react'
-import { Card } from 'react-bootstrap'
+
 import ItemCount from '../ItemCount/ItemCount'
 import SumarAlCarrito from '../SumarAlCarrito/SumarAlCarrito'
+
+import { Card } from 'react-bootstrap'
+
 
 
 const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) => {
 
   const [toCart, aCarrito] = useState (true)
 
-  const cambioBotton = ()=>{
-    aCarrito (false)
-  }
-
   const onAdd = (cant) => {
     console.log(`La cantidad es:  ${cant}`)
+    aCarrito (false)
   }
 
   return (
@@ -27,7 +27,7 @@ const ItemDetail = ({img, id, categoria, nombre, precio, descripcion, stock}) =>
                 <br /> {`Precio: $${precio}, incluye IVA.`}
                 </Card.Text>
             { toCart === true ?
-                <ItemCount inicial={1} stock={stock} onAdd={onAdd} cambioBotton={cambioBotton}/>
+                <ItemCount inicial={1} stock={stock} onAdd={onAdd}/>
               :
                 <SumarAlCarrito/>
             }               

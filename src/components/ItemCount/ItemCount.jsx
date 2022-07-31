@@ -31,7 +31,7 @@ const ItemCount = ({inicial, stock, onAdd, cambioBotton}) => {
                 <label className= "m-2">{count}</label>
                 <Button variant="outline-secondary" onClick ={restarItem}>-</Button>
             </div>
-            <Button variant="outline-secondary m-2" onClick ={() => {sumarCarrito(); cambioBotton()}}>
+            <Button variant="outline-secondary m-2" onClick ={sumarCarrito}>
                 Sumar al Carrito!</Button>
         </>
 

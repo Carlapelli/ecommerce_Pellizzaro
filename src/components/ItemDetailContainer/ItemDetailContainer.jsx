@@ -2,7 +2,6 @@ import {useParams} from "react-router-dom"
 import { useEffect, useState} from "react"
 import { getFetch } from "../../helper/getFech"
 
-
 import ItemDetail from "../ItemDetail/ItemDetail"
 import Loading from "../Loading/Loading"
 
@@ -18,7 +17,7 @@ const ItemDetailContainer = () => {
             .then (respuesta => setProductos(respuesta))
             .catch (err => console.log (err))
             .finally(()=> setLoading(false))
-    }, [])
+    }, [id])
 
 
     return (
