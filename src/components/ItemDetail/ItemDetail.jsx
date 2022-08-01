@@ -11,12 +11,17 @@ const ItemDetail = ({producto}) => {
 
   const [toCart, aCarrito] = useState (true)
 
+  //importo el useCartContext para usar el contexto
+  // destructuring de la funcion agregarAlCarrito y la uso en OnAdd. que necesito y resive como parametro el cartList
+
   const {agregarAlCarrito, cartList} = useCartContext ()
 
   const onAdd = (cant) => {
     console.log(`La cantidad es:  ${cant}`)
     aCarrito (false)
+    //cantidad es un campo nuevo que le sumo al obj
     agregarAlCarrito ({...producto, cantidad: cant})
+    
   }
 
   console.log (cartList)

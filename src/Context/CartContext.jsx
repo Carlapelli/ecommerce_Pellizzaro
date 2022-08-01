@@ -8,7 +8,6 @@ const CartContextProvider = ({children}) => {
 
     const [ cartList , setCartList ] =useState([])
 
-
     const agregarAlCarrito = (producto) =>{
         setCartList([...cartList, producto])
     }

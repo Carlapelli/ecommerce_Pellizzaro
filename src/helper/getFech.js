@@ -21,7 +21,7 @@ export const getFetch = (id) => {
                 } else {
                 resolve (productos)
                 }
-            },2000)
+            },1000)
     })   
 }
 
