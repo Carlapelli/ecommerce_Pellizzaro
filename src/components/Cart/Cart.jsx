@@ -10,14 +10,15 @@ const { cartList, vaciarTotalCarrito } = useCartContext ()
       <h1>Carrito</h1>
       <ul>
           {cartList.map (item=> (
-            
-            <li key={item.id}>
+            <div key={item.id}>
+            <li>
 
         ♥ Nombre:{item.nombre} 
         ♥ Cantidad:{item.cantidad} 
         ♥ Precio total: ${item.precio * item.cantidad}
 
             </li>
+            </div>
           ))}
       </ul>  
       <Button variant="outline-secondary m-2" onClick ={vaciarTotalCarrito}>

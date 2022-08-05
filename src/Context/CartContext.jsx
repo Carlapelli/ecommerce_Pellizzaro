@@ -8,19 +8,18 @@ const CartContextProvider = ({children}) => {
 
     const [ cartList , setCartList ] =useState([])
 
-    const agregarAlCarrito = (producto, cantidad) =>{
+    const agregarAlCarrito = (producto) =>{
 
-        setCartList([...cartList, producto])
-        
-    /*  const index = cartList.findIndex(item => item.id === cartList.id)
+    const index = cartList.findIndex(prod => prod.id === producto.id)
     
-        if (index == -1) {
-            setCartList([...cartList, {producto, cantidad}]
+        if (index != -1) {
+            let primeraCant = cartList[index].cantidad
+            cartList[index].cantidad = primeraCant + producto.cantidad
+            setCartList([...cartList])
         }
         else {
-            const primeraCant = cartList[index].cantidad
-            setCartList([...cartList, { producto, cantidad: cantidad + primeraCant}])
-        } */
+            setCartList([...cartList, producto])
+        } 
     }
 
     const vaciarTotalCarrito = () => {
