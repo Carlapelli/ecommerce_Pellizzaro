@@ -20,8 +20,7 @@ const ItemDetail = ({producto}) => {
     console.log(`La cantidad es:  ${cant}`)
     setToCart (false)
     //cantidad es un campo nuevo que le sumo al obj
-    agregarAlCarrito ({...producto, cantidad: cant})
-    
+    agregarAlCarrito ({...producto, cantidad: cant})    
   }
 
   console.log (cartList)

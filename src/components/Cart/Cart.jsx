@@ -1,29 +1,47 @@
-import { Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import { useCartContext } from "../../Context/CartContext"
+
+import { Button } from "react-bootstrap"
 
 const Cart = () => {
 
-const { cartList, vaciarTotalCarrito } = useCartContext ()
+const { cartList, vaciarTotalCarrito, precioTotal, eliminarItem  } = useCartContext ()
 
-  return (
+return (
+  
     <div>
-      <h1>Carrito</h1>
-      <ul>
+      <h1 className="m-5">Carrito</h1>
+    {precioTotal() != 0 &&
+    <div>
+      <table className = "table text-center align-items-center">
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>              
+          </tr>
+      </thead>
           {cartList.map (item=> (
-            <div key={item.id}>
-            <li>
-
-        ♥ Nombre:{item.nombre} 
-        ♥ Cantidad:{item.cantidad} 
-        ♥ Precio total: ${item.precio * item.cantidad}
-
-            </li>
-            </div>
+            <tbody key={item.id}>
+              <tr>
+                <td>{item.nombre}</td>
+                <td>{item.precio}</td>
+                <td>{item.cantidad}</td>
+                <td>${item.precio * item.cantidad}</td>
+                <td><Button variant="outline-secondary m-2" onClick ={()=>eliminarItem (item.id)} >Eliminar</Button></td>
+              </tr>
+            </tbody>
           ))}
-      </ul>  
-      <Button variant="outline-secondary m-2" onClick ={vaciarTotalCarrito}>
-                Vaciar Carrito!</Button>
+      </table>
+      <h4> Precio Total: ${precioTotal()} </h4>
+      <Button variant="outline-secondary m-2" onClick ={vaciarTotalCarrito}> Vaciar Carrito!</Button>
       </div>
+      }
+      <Link to="/">     
+        <Button variant="outline-secondary m-2"> Seguir Comprando</Button> 
+      </Link>
+    </div>
   )
 }
 
