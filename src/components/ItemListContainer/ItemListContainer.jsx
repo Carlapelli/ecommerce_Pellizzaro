@@ -13,17 +13,6 @@ const ItemListContainer = (greeting) => {
 
     const {categoriaId} = useParams() 
 
-/*     useEffect(()=>{
-        const db= getFirestore()
-        const queryCollection = collection(db, "productos") //llama a una coleccion, 2 parametros
-        getDocs(queryCollection)
-        .then (respuesta => setProductos(respuesta.docs.map(prod=>({id: prod.id, ...prod.data()}))))
-        .catch (err => console.log (err))
-        .finally(()=> setLoading(false)) 
-    },[])
-
-    console.log (productos) */
-
     useEffect (()=>{
         if (categoriaId){
         const db = getFirestore()
