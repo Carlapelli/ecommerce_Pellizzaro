@@ -26,7 +26,7 @@ return (
             <tbody key={item.id}>
               <tr>
                 <td>{item.nombre}</td>
-                <td>{item.precio}</td>
+                <td>${item.precio}</td>
                 <td>{item.cantidad}</td>
                 <td>${item.precio * item.cantidad}</td>
                 <td><Button variant="outline-secondary m-2" onClick ={()=>eliminarItem (item.id)} >Eliminar</Button></td>
