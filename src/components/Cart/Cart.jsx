@@ -1,11 +1,48 @@
 import { Link } from "react-router-dom"
+import { useState } from "react"
 import { useCartContext } from "../../Context/CartContext"
+import { addDoc, collection, doc, getFirestore, updateDoc } from "firebase/firestore"
 
 import { Button } from "react-bootstrap"
+
+
 
 const Cart = () => {
 
 const { cartList, vaciarTotalCarrito, precioTotal, eliminarItem  } = useCartContext ()
+
+const [infoOrden, setInfoOrden] = useState('')
+
+//Funcion para generar orden con los datos del comprador hardcodeados
+const generarOrden = (e) =>{
+  e.preventDefault ()
+
+  const orden = {}
+  orden.comprador = {email: "carla@gmail.com", nombre: "Carla", telefono: "150001076"}
+  orden.items = cartList.map ( prod => {
+    return{
+      producto: prod.nombre,
+      id: prod.id,
+      precio: prod.precio * prod.cantidad
+    }
+  })
+  orden.total = precioTotal()
+
+  // Genera orden en base de datos (collection en firebase)
+  const db = getFirestore()
+  const queryOrdenes = collection(db, "ordenes")
+  addDoc(queryOrdenes, orden)
+  .then (respuesta => setInfoOrden(respuesta.id))
+
+  // actualizar el documento en la collection 
+  /* const queryUpdateDoc = doc (db, "productos", "Gn716Y7ZFgo4yXgWrWee")
+  updateDoc(queryUpdateDoc, {
+    stock: 9
+  })
+  .then (()=> console.log ("stock actualizado")) */
+
+  vaciarTotalCarrito ()
+}
 
 return (
   
@@ -36,10 +73,12 @@ return (
       </table>
       <h4> Precio Total: ${precioTotal()} </h4>
       <Button variant="outline-secondary m-2" onClick ={vaciarTotalCarrito}> Vaciar Carrito!</Button>
+      <Button variant="outline-secondary m-2" onClick ={generarOrden}> Terminar Compra!</Button>      
       </div>
       }
+      {infoOrden!=='' && <h4>Confirmación de su orden: {infoOrden}</h4>}
       <Link to="/">     
-        <Button variant="outline-secondary m-2"> Seguir Comprando</Button> 
+        <Button variant="outline-secondary m-5"> Seguir Comprando</Button> 
       </Link>
     </div>
   )
