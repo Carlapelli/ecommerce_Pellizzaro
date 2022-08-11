@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { useCartContext } from '../../Context/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
-import SumarAlCarrito from '../SumarAlCarrito/SumarAlCarrito'
+import MoveToCart from '../MoveToCart/MoveToCart'
 
 import { Card } from 'react-bootstrap'
 
@@ -14,13 +14,13 @@ const ItemDetail = ({producto}) => {
   //importo el useCartContext para usar el contexto
   // destructuring de la funcion agregarAlCarrito y la uso en OnAdd. que necesito y recibe como parametro el cartList
 
-  const {agregarAlCarrito, cartList} = useCartContext ()
+  const {addToCart, cartList} = useCartContext ()
 
   const onAdd = (cant) => {
     console.log(`La cantidad es:  ${cant}`)
     setToCart (false)
     //cantidad es un campo nuevo que le sumo al obj
-    agregarAlCarrito ({...producto, cantidad: cant})    
+    addToCart ({...producto, cantidad: cant})    
   }
 
   console.log (cartList)
@@ -38,7 +38,7 @@ const ItemDetail = ({producto}) => {
             { toCart === true ?
                 <ItemCount inicial={1} stock={producto.stock} onAdd={onAdd}/>
               :
-                <SumarAlCarrito/>
+                <MoveToCart/>
             }               
             </Card.Body>
             <Card.Footer>

@@ -1,4 +1,4 @@
-
+/* 
 let productos = [
     {id: "1", categoria: "Sticker", nombre: "Nice Boots", precio: 300, img:"../../imagenProductos/stickers/botas.jpg", descripcion: "medida de 10x10.", stock: 15},
     {id: "2", categoria: "Sticker", nombre: "Your Cat", precio: 300, img:"../../imagenProductos/stickers/dontCareCat.jpg", descripcion: "medida de 10x15.", stock: 15},
@@ -23,5 +23,5 @@ export const getFetch = (id) => {
                 }
             },2000)
     })   
-}
+} */
 

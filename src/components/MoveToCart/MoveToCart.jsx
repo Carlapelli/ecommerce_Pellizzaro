@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { Button } from 'react-bootstrap'
 
-const SumarAlCarrito = () => {
+const MoveToCart = () => {
   return (
     <Link to="/cart">
         <Button variant="outline-secondary m-2">Ir al Carrito!</Button>
@@ -10,4 +10,4 @@ const SumarAlCarrito = () => {
   )
 }
 
-export default SumarAlCarrito
+export default MoveToCart

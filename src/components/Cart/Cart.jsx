@@ -9,7 +9,7 @@ import { Button } from "react-bootstrap"
 
 const Cart = () => {
 
-const { cartList, vaciarTotalCarrito, precioTotal, eliminarItem  } = useCartContext ()
+const { cartList, emptyCart, totalPrice, deleteItem  } = useCartContext ()
 
 const [infoOrden, setInfoOrden] = useState('')
 
@@ -26,7 +26,7 @@ const generarOrden = (e) =>{
       precio: prod.precio * prod.cantidad
     }
   })
-  orden.total = precioTotal()
+  orden.total = totalPrice()
 
   // Genera orden en base de datos (collection en firebase)
   const db = getFirestore()
@@ -41,14 +41,16 @@ const generarOrden = (e) =>{
   })
   .then (()=> console.log ("stock actualizado")) */
 
-  vaciarTotalCarrito ()
+  emptyCart ()
 }
 
 return (
-  
+  <>
     <div>
       <h1 className="m-5">Carrito</h1>
-    {precioTotal() != 0 &&
+    </div>
+    <div>
+    {totalPrice() != 0 &&
     <div>
       <table className = "table text-center align-items-center">
       <thead>
@@ -66,13 +68,13 @@ return (
                 <td>${item.precio}</td>
                 <td>{item.cantidad}</td>
                 <td>${item.precio * item.cantidad}</td>
-                <td><Button variant="outline-secondary m-2" onClick ={()=>eliminarItem (item.id)} >Eliminar</Button></td>
+                <td><Button variant="outline-secondary m-2" onClick ={()=>deleteItem (item.id)} >Eliminar</Button></td>
               </tr>
             </tbody>
           ))}
       </table>
-      <h4> Precio Total: ${precioTotal()} </h4>
-      <Button variant="outline-secondary m-2" onClick ={vaciarTotalCarrito}> Vaciar Carrito!</Button>
+      <h4> Precio Total: ${totalPrice()} </h4>
+      <Button variant="outline-secondary m-2" onClick ={emptyCart}> Vaciar Carrito!</Button>
       <Button variant="outline-secondary m-2" onClick ={generarOrden}> Terminar Compra!</Button>      
       </div>
       }
@@ -81,6 +83,7 @@ return (
         <Button variant="outline-secondary m-5"> Seguir Comprando</Button> 
       </Link>
     </div>
+  </>
   )
 }
 

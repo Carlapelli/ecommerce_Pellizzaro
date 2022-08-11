@@ -28,9 +28,11 @@ const NavBar = () => {
                     <NavLink to="/categoria/Sticker" className="nav-link m-4 text-muted">Stickers</NavLink>
                     <NavLink to="/categoria/Cuadro" className="nav-link m-4 text-muted">Cuadros</NavLink>
                     <NavLink to="/" className="nav-link m-4 text-muted">Contacto</NavLink>
-            { cantidadProds() != 0 &&
-                    <Link to="/cart"> <CartWidget /> {`${cantidadProds()} en Carrito`}</Link>                    
-                    }
+                    <Link to="/cart"> <CartWidget /> { cantidadProds() != 0 &&
+                    `${cantidadProds()} en Carrito`                  
+                    }</Link> 
+
+            
                 </Nav>
             </Navbar.Collapse>
         </Container>
