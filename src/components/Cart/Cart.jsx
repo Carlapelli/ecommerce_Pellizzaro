@@ -21,7 +21,7 @@ const [formData, setFormData] = useState({
 })
 
 //Funcion para generar orden con los datos del comprador hardcodeados
-const generateOrder = (e) =>{
+const generateOrder = async(e) =>{
   e.preventDefault ()
 
   if ( formData.name === "" || formData.phone === "" || formData.email === "" || (formData.email != formData.repeatEmail)){
@@ -46,6 +46,13 @@ const generateOrder = (e) =>{
   const queryOrders = collection(db, "orders")
   addDoc(queryOrders, order)
   .then (resp => setInfoOrder(resp.id))
+  .catch (err => console.log (err))
+  .finally (()=> setFormData({
+    email: "",
+    name: "", 
+    phone: "",
+    repeatEmail: ""
+  }))
 
   emptyCart ()
 }}
@@ -122,7 +129,7 @@ return (
             </ul>
         </form>
     </div>  }
-    
+
     <div>
           <Link to="/">     
             <Button variant="outline-secondary m-5"> Seguir Comprando</Button> 
