@@ -11,7 +11,7 @@ import logo from '../../imagenes/iconos/logo.png'
 
 const NavBar = () => {
 
-    const { cantidadProds } = useCartContext()
+    const { amountOfProds } = useCartContext()
 
     return (
     <Navbar bg="pink" expand="lg" sticky="top">
@@ -28,11 +28,9 @@ const NavBar = () => {
                     <NavLink to="/categoria/Sticker" className="nav-link m-4 text-muted">Stickers</NavLink>
                     <NavLink to="/categoria/Cuadro" className="nav-link m-4 text-muted">Cuadros</NavLink>
                     <NavLink to="/" className="nav-link m-4 text-muted">Contacto</NavLink>
-                    <Link to="/cart"> <CartWidget /> { cantidadProds() != 0 &&
-                    `${cantidadProds()} en Carrito`                  
+                    <Link to="/cart"> <CartWidget /> { amountOfProds() != 0 &&
+                    `${amountOfProds()} en Carrito`                  
                     }</Link> 
-
-            
                 </Nav>
             </Navbar.Collapse>
         </Container>

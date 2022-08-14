@@ -3,23 +3,23 @@ import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 
 
-const ItemCount = ({inicial, stock, onAdd, cambioBotton}) => {
+const ItemCount = ({initial, stock, onAdd}) => {
 
-    const [count, setCount] = useState (inicial) 
+    const [count, setCount] = useState (initial) 
 
-    const sumarItem = () => {
+    const addItem = () => {
         if (count < stock){
             setCount(count + 1)
         }
     }
 
-    const restarItem = () => {
-        if (count > inicial){
+    const removeItem = () => {
+        if (count > initial){
             setCount(count - 1)
             }
         }
 
-    const sumarCarrito = () => {
+    const addToCart = () => {
         if (count <= stock){
         onAdd (count)
     }}
@@ -27,11 +27,11 @@ const ItemCount = ({inicial, stock, onAdd, cambioBotton}) => {
     return (
         <>
             <div className="bottonsCard">
-                <Button variant="outline-secondary" onClick ={sumarItem}>+</Button>
+                <Button variant="outline-secondary" onClick ={addItem}>+</Button>
                 <label className= "m-2">{count}</label>
-                <Button variant="outline-secondary" onClick ={restarItem}>-</Button>
+                <Button variant="outline-secondary" onClick ={removeItem}>-</Button>
             </div>
-            <Button variant="outline-secondary m-2" onClick ={sumarCarrito}>
+            <Button variant="outline-secondary m-2" onClick ={addToCart}>
                 Sumar al Carrito!</Button>
         </>
 

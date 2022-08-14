@@ -13,8 +13,8 @@ const CartContextProvider = ({children}) => {
         const index = cartList.findIndex(prod => prod.id === producto.id)
         
             if (index != -1) {
-                let primeraCant = cartList[index].cantidad
-                cartList[index].cantidad = primeraCant + producto.cantidad
+                let firstQuant = cartList[index].cantidad
+                cartList[index].cantidad = firstQuant + producto.cantidad
                 setCartList([...cartList])
             }
             else {
@@ -30,8 +30,8 @@ const CartContextProvider = ({children}) => {
         return cartList.reduce ( (acum, prod) => acum += (prod.precio * prod.cantidad), 0)
     }
 
-    const cantidadProds = () =>{
-        return cartList.reduce ((cont,prod)=> cont += prod.cantidad,0)
+    const amountOfProds = () =>{
+        return cartList.reduce ((count,prod)=> count += prod.cantidad,0)
     }
 
     const deleteItem = (id) =>{
@@ -44,7 +44,7 @@ const CartContextProvider = ({children}) => {
             addToCart,
             emptyCart,
             totalPrice,
-            cantidadProds,
+            amountOfProds,
             deleteItem
         }}>
             {children}

@@ -61,3 +61,45 @@ table {
   margin-right: auto;
   max-width: 60%;  
 }
+
+form {
+  border: solid black 1px;
+  margin: 30px auto;
+  max-width: 400px;
+  margin-bottom: 50px;
+  background-color: rgb(253, 243, 245);
+  z-index: 1000;
+}
+
+.formTitle{
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.form-style-1 {
+	margin: auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px;
+}
+
+.form-style-1 li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+.form-style-1 label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+	font-weight: bold;
+}
+
+.form-style-1 .required{
+	color:#e4677c;
+}
+
+.form-style-1 .field-long{
+	width: 100%;
+}
+

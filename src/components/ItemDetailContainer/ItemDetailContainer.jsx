@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
         const db = getFirestore() // trae firestore
         const queryProducto = doc(db,"productos", id) //apunta a un productor en especifico, 3 parametros
         getDoc(queryProducto) //trae el doc
-        .then (respuesta => setProductos({id: respuesta.id, ...respuesta.data()}))//funcion data para extraer todos los datos del obj
+        .then (resp => setProductos({id: resp.id, ...resp.data()}))//funcion data para extraer todos los datos del obj
         .catch (err => console.log (err))
         .finally(()=> setLoading(false)) 
     }, [])

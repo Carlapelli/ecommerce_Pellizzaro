@@ -36,7 +36,7 @@ const ItemDetail = ({producto}) => {
                 <br /> {`Precio: $${producto.precio}, incluye IVA.`}
                 </Card.Text>
             { toCart === true ?
-                <ItemCount inicial={1} stock={producto.stock} onAdd={onAdd}/>
+                <ItemCount initial={1} stock={producto.stock} onAdd={onAdd}/>
               :
                 <MoveToCart/>
             }               
