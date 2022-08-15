@@ -1,82 +1,101 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useState } from "react"
-import { Button } from "react-bootstrap"
+import { addDoc, collection, getFirestore } from "firebase/firestore"
 import { useCartContext } from "../../Context/CartContext"
+
+import { Button } from "react-bootstrap"
+import Swal from "sweetalert2"
 
 const Form = () => {
 
-  const { cartList, emptyCart, totalPrice} = useCartContext ()
+  const { cartList, emptyCart, totalPrice } = useCartContext () //gets functions from context
 
-      const [formData, setFormData] = useState({
-        email:'', 
-        name:'', 
-        tel:'',
-        repeatEmail:''
-    })
+  const [infoOrder, setInfoOrder] = useState('') //gets the ID for the buyer
 
-    const generateOrder = async (e) =>{
-      e.preventDefault ()
-    
-      const order = {}
-      order.buyer = formData
+//Sets data entered in inputs
+const [formData, setFormData] = useState({
+  email: "",
+  name: "", 
+  phone: "",
+  repeatEmail: ""
+})
 
-      if (formData.name && formData.tel && formData.email && (formData.email === formData.repeatEmail)){
-        order.buyer = formData
-        order.items = cartList.map ( prod => {
-          return{
-            product: prod.nombre,
-            id: prod.id,
-            price: prod.precio * prod.cantidad
-          }
-        })
-        order.total = totalPrice()
+const generateOrder = (e) =>{
+  e.preventDefault ()
 
-        const db = getFirestore()
-        const queryOrders = collection(db, "orders")
-        addDoc(queryOrders, order)
-        .then (resp => setInfoOrder(resp.id))
-        .finally (()=> emptyCart ())
+  if ( formData.name === "" || formData.phone === "" || formData.email === "" || (formData.email != formData.repeatEmail)){
 
-      } else {
-        alert ("Verifique que los datos ingresados sean correctos")
-      }
+    Swal.fire({
+      title:"Ups! Verifica los datos ingresados.",
+      icon: "warning",
+      confirmButtonColor: 'rgb(233, 170, 191)'})
+
+  } else {
+
+  const order = {}
+  order.buyer = formData
+  order.items = cartList.map ( prod => {
+    return{
+      product: prod.nombre,
+      id: prod.id,
+      price: prod.precio * prod.cantidad
     }
+  })
+  order.total = totalPrice()
 
-    const handleChange = (e) => {
-      setFormData({
-          ...formData,
-          [e.target.name]: e.target.value
-      })
-  }
+  // Generates data in Firestore
+  const db = getFirestore()
+  const queryOrders = collection(db, "orders")
+  addDoc(queryOrders, order)
+  .then (resp => setInfoOrder (Swal.fire({
+    title:`Gracias por tu compra!\n Número de Orden:\n ${resp.id}`,
+    icon: "success",
+    confirmButtonColor: 'rgb(233, 170, 191)'})))
+  .catch (err => console.log (err))
+  .finally (()=> setFormData({
+    email: "",
+    name: "", 
+    phone: "",
+    repeatEmail: ""
+  }))
 
+  emptyCart () //delete the cart once purchased is confirmed
+}}
+
+//it gets inputs updates
+const handleChange = (e) =>{
+  setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+  })
+}
 
     return (
-      <div>
+    <>
       <h2>Confirmar compra</h2>
-          <form>
-            <label className="formTitle">Complete el formulario ♥</label>
-            <ul className="form-style-1">
-                <li><label>Nombre <span className="required">*</span></label>
-                    <input type="text" name="field1" className="field-long" onChange={handleChange} value={formData.name}/>
-                </li>
-                <li>
-                    <label>Teléfono <span className="required">*</span></label>
-                    <input type="number" name="field2" className="field-long" onChange={handleChange} value={formData.tel}/>
-                </li>
-                <li>
-                    <label>Email <span className="required">*</span></label>
-                    <input type="email" name="field3" className="field-long" onChange={handleChange} value={formData.email}/>
-                </li>
-                <li>
-                    <label>Repita Email <span className="required">*</span></label>
-                    <input type="email" name="field4" className="field-long" onChange={handleChange} value={formData.repeatEmail}/>
-                </li>
-                <li>
-                <Button variant="outline-secondary m-2" onClick ={generateOrder}> Terminar Compra!</Button>
-                </li>
-            </ul>
-        </form>
-    </div>
+      <form>
+        <label className="formTitle">Complete el formulario ♥</label>
+        <ul className="form-style-1">
+            <li><label>Nombre <span className="required">*</span></label>
+                <input type="text" name="name" className="field-long" onChange={handleChange}/>
+            </li>
+            <li>
+                <label>Teléfono <span className="required">*</span></label>
+                <input type="number" name="phone" className="field-long" onChange={handleChange}/>
+            </li>
+            <li>
+                <label>Email <span className="required">*</span></label>
+                <input type="email" name="email" className="field-long" onChange={handleChange}/>
+            </li>
+            <li>
+                <label>Repita Email <span className="required">*</span></label>
+                <input type="email" name="repeatEmail" className="field-long" onChange={handleChange}/>
+            </li>
+            <li>
+            <Button variant="outline-secondary m-2" onClick ={generateOrder}> Terminar Compra!</Button>
+            </li>
+        </ul>
+    </form>
+    </>
     )
 }
 

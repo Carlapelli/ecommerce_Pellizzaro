@@ -2,7 +2,6 @@ import { useState } from "react"
 
 import Button from 'react-bootstrap/Button';
 
-
 const ItemCount = ({initial, stock, onAdd}) => {
 
     const [count, setCount] = useState (initial) 
@@ -31,8 +30,7 @@ const ItemCount = ({initial, stock, onAdd}) => {
                 <label className= "m-2">{count}</label>
                 <Button variant="outline-secondary" onClick ={removeItem}>-</Button>
             </div>
-            <Button variant="outline-secondary m-2" onClick ={addToCart}>
-                Sumar al Carrito!</Button>
+                <Button variant="outline-secondary m-2" onClick ={addToCart}>Sumar al Carrito!</Button>
         </>
 
     )

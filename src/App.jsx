@@ -9,6 +9,7 @@ import CartContextProvider from "./Context/CartContext"
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from "./components/Footer/Footer"
 
 
 
@@ -22,11 +23,12 @@ function App() {
         <Title title= "Mi Ecommerce ♥"/>
         <Routes>
           <Route index path="/" element={<ItemListContainer subtitle="Bienvenid@ a mi página de diseños!"/>}/>
-          <Route path="/categoria/:categoriaId" element={<ItemListContainer subtitle ="Productos Seleccionados"/>}/>          
+          <Route path="/categoria/:categoryId" element={<ItemListContainer subtitle ="Productos Seleccionados"/>}/>          
           <Route path="/detalle/:id" element={<ItemDetailContainer />}/>
           <Route path ="/cart" element ={<Cart />}/>
           <Route path ="*" element ={<Navigate to="/"/>}/>
         </Routes>
+          <Footer/>
       </div>
     </BrowserRouter>
     </CartContextProvider>

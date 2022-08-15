@@ -27,7 +27,6 @@ const NavBar = () => {
                     <NavLink to="/" className="nav-link m-4 text-muted">Inicio</NavLink>
                     <NavLink to="/categoria/Sticker" className="nav-link m-4 text-muted">Stickers</NavLink>
                     <NavLink to="/categoria/Cuadro" className="nav-link m-4 text-muted">Cuadros</NavLink>
-                    <NavLink to="/" className="nav-link m-4 text-muted">Contacto</NavLink>
                     <Link to="/cart"> <CartWidget /> { amountOfProds() != 0 &&
                     `${amountOfProds()} en Carrito`                  
                     }</Link> 

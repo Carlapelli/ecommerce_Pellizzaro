@@ -10,40 +10,19 @@ const ItemListContainer = (greeting) => {
     const [products, setProducts] = useState ([])
     const [loading, setLoading] =useState (true)
 
-    const {categoriaId} = useParams() 
+    const {categoryId} = useParams() 
 
     useEffect (()=>{
-        if (categoriaId){
-        const db = getFirestore()
+        const db = getFirestore() //brings the data from Firestore
         const queryCollection = collection (db, "productos")
-        const queryFiltrada = query (queryCollection, where("categoria","==", categoriaId)) //where filtra, 3 parametros
-        getDocs(queryFiltrada)
+        //If the category is equals to the categoria object in data, it brings only those products
+        const queryCollectionFiltered = categoryId ? query (queryCollection, where("categoria","==", categoryId)) : queryCollection
+        getDocs(queryCollectionFiltered)
         .then (resp => setProducts(resp.docs.map(prod=>({id: prod.id, ...prod.data()}))))
         .catch (err => console.log (err))
         .finally(()=> setLoading(false)) 
-    }else{
-        const db= getFirestore()
-        const queryCollection = collection(db, "productos") //llama a una coleccion, 2 parametros
-        getDocs(queryCollection)
-        .then (resp => setProducts(resp.docs.map(prod=>({id: prod.id, ...prod.data()}))))
-        .catch (err => console.log (err))
-        .finally(()=> setLoading(false)) 
-    } 
-    }, [categoriaId])
+    }, [categoryId])
 
-/*     useEffect (()=> {
-        if (categoriaId) {
-        getFetch ()
-            .then (respuesta => setProductos(respuesta.filter(producto => producto.categoria === categoriaId)))
-            .catch (err => console.log (err))
-            .finally(()=> setLoading(false)) 
-        } else {
-        getFetch ()
-            .then (respuesta => setProductos(respuesta))
-            .catch (err => console.log (err))
-            .finally(()=> setLoading(false)) 
-        }        
-    }, [categoriaId]) */
 
     return (
         <div>
