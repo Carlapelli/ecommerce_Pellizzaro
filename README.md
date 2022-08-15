@@ -23,6 +23,10 @@ Para acceder a mi contacto, al pie de página ubiqué un footer que direcciona a
 ♥Librerías Utilizadas
 
 React-router-dom 6.3.0: permite la navegación en la aplicación web.
+
 Firebase 9.9.2: utilizada como base de datos, contiene la información de los productos y genera un ID por cada órden de compra confirmada y guarda esa información.
+
 Bootstrap 5.1.3 & React-bootstrap 2.4.0: utilizada para darle estilo junto con CSS.
+
 Sweetalert2 11.4.26: elegida para generar un aviso al usuario en caso de errores o confirmación de su compra.
+
