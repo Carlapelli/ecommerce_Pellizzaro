@@ -4,7 +4,9 @@ import { Button } from 'react-bootstrap'
 
 const CartList = () => {
 
-  const { cartList, deleteItem} = useCartContext ()
+  const { cartList, deleteItem} = useCartContext () //gets functions from context
+
+  //Once the consumer start adding products, it appear in the cart with a Delete botton.
 
   return (
     <>

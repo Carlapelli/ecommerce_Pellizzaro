@@ -7,13 +7,15 @@ import { Button } from "react-bootstrap"
 
 const Cart = () => {
 
-const { emptyCart, totalPrice } = useCartContext ()
+const { emptyCart, totalPrice } = useCartContext () //gets functions from context
+
+//Cart sets the table, waits for the CartList info to insert the products and show the content. Below the table, there is the Form.
 
 return (
   <>
     <div>
       <h1 className="m-5">Carrito</h1>
-    </div>
+    </div> 
         {totalPrice() != 0 &&
         <div>
           <div>
