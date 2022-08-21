@@ -1,10 +1,10 @@
-import imagenCarrito from "../../imagenes/iconos/carrito.png"
+import imageCart from "../../imagenes/iconos/carrito.png"
 
 const CartWidget = () => {
     
     return (
         <>
-            <img src= {imagenCarrito} alt="cart" width="100" height="80"/>
+            <img src= {imageCart} alt="cart" width="100" height="80"/>
         </>
     )
 }

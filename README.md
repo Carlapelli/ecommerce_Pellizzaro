@@ -2,37 +2,37 @@
 Proyecto React Comision37100
 
 E-commerce de Stickers y Cuadros.
-Demo: https://ecommerce-pellizzaro.netlify.app/
+✰ Demo: https://ecommerce-pellizzaro.netlify.app/
 
-♥Circuito de Compra
+✰ Circuito de Compra
 
-En la página principal se puede ver el listado de todos los productos: Stickers y Cuadros. 
+En la página principal se encuentra el listado de todos los productos: Stickers y Cuadros. 
 
-En la barra de navegación se puede acceder a los mismos productos de forma filtrada por sus dos categoría.
+En la barra de navegación se puede acceder a los mismos productos de forma filtrada por sus dos categorías.
 
-Para conocer más sobre el producto, se puede acceder al detalle clickeando en "Detalle del Producto" debajo de cada ilustración.
+Para conocer más sobre el producto, se accede al detalle al clickear en "Detalle del Producto" debajo de cada ilustración.
 
-Una vez en el detalle, se puede seleccionar la cantidad de items según el stock. El número de stock varía por cada producto.
+Una vez en el detalle, se selecciona la cantidad de items según el stock. El número de stock varía por cada producto.
 
 Desde el detalle, se envían productos al carrito. A medida que se van seleccionando productos, aparecerá el número elegido al lado de la imagen Carrito en la barra de navegación.
 
 Se puede acceder al carrito de dos formas: desde el boton "ir al carrito" al seleccionar producto desde el detalle, o directamente clickeando la imagen del carrito.
 
-Desde la página carrito, aparecerá el listado de productos seleccionados y precio final. Se puede eliminar cada línea de producto si se desea o eliminar el carrito completo.
+Desde la página carrito, aparecerá el listado de productos seleccionados y precio final. Se puede eliminar cada línea de producto o eliminar el carrito completo.
 
-Para completar la compra, se debe llenar cada campo del formulario y terminar la compra. Al final, aparecerá un mensaje con el número de confirmación de compra.
+Para completar la compra, se debe completar cada campo del formulario y terminar la compra. Al final, aparecerá un mensaje con el número de confirmación de compra.
 
-Para acceder a la página principal, se podrá hacer de dos maneras: clickeando en el logo de la flor o en Inicio sobre la barra de navegación, o al pie de la página del carrito en "Seguir comprando".
+Para acceder a la página principal existen tres maneras: clickeando en el logo de la flor, en Inicio sobre la barra de navegación o al pie de la página del carrito en "Seguir comprando".
 
-♥Contacto
+✰ Contacto
 
 Para acceder a mi contacto, al pie de página ubiqué un footer que direcciona a mi LinkedIn.
 
-♥Librerías Utilizadas
+✰ Librerías Utilizadas
 
 React-router-dom 6.3.0: permite la navegación en la aplicación web.
 
-Firebase 9.9.2: utilizada como base de datos, contiene la información de los productos y genera un ID por cada órden de compra confirmada y guarda esa información.
+Firebase 9.9.2: utilizada como base de datos, contiene la información de los productos y genera un ID por cada órden de compra confirmada. Asimismo, guarda esa información.
 
 Bootstrap 5.1.3 & React-bootstrap 2.4.0: utilizada para darle estilo junto con CSS.
 
